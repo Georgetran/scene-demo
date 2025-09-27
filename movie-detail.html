@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Detail</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="movie-detail.css">
+</head>
+
+<body>
+<nav id="navbar" class="navbar navbar-expand-lg shadow fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      <div class="wave-container">
+    <h1 class="wave-text ms-2">
+        <span>S</span><span>C</span><span>E</span><span>N</span><span>E</span>
+    </h1>
+</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarMovies" role="button" data-bs-toggle="dropdown">
+            Movies
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=popular">Popular</a></li>
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=now_playing">Now Playing</a></li>
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=upcoming">Upcoming</a></li>
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=top_rated">Top Rated</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarPeople" role="button" data-bs-toggle="dropdown">
+            People
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="movielist.html?type=person&category=popular">Popular People</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item dropdown" id="userMenu">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle fa-lg"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" id="userDropdownMenu">
+            <li><h6 class="dropdown-header">👤 Guest</h6></li>
+            <li><a class="dropdown-item" href="login.html">Sign In</a></li>
+            <li><a class="dropdown-item" href="register.html">Sign Up</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div style="padding-top: 50px;"></div>
+  <section class="movie-header text-light py-5" id="movie-header">
+    <div class="container d-flex flex-column flex-md-row align-items-center">
+      <img id="movie-poster" src="" class="rounded shadow-lg mb-4 mb-md-0" style="width: 250px;">
+      <div class="ms-md-4">
+        <h2 id="movie-title"></h2>
+        <p id="movie-meta" class="small text-muted"></p>
+
+        <!-- Buttons -->
+        <div class="d-flex align-items-center my-3">
+          <span id="user-score" class="badge bg-success me-3">0%</span>
+          <button id="btn-mylist" class="btn btn-outline-light rounded-circle me-2"><i class="fa-solid fa-list"></i></button>
+          <button id="btn-fav" class="btn btn-outline-light rounded-circle me-2"><i class="fa-regular fa-heart"></i></button>
+          <button class="btn btn-outline-light rounded-circle me-2"><i class="fa-regular fa-bookmark"></i></button>
+          <button id="play-trailer" class="btn btn-outline-light"><i class="fa-solid fa-play"></i> Play Trailer</button>
+        </div>
+
+        <p id="movie-tagline" class="fst-italic"></p>
+        <h5>Overview</h5>
+        <p id="movie-overview"></p>
+
+        <div id="movie-crew" class="row"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <h4>Top Billed Cast</h4>
+    <div class="d-flex " style= "overflow-x: auto; overflow-y: hidden; white-space: nowrap;" id="cast-list"></div>
+  </section>
+
+  <section class="container my-5">
+    <h4>Reviews</h4>
+    <div id="reviews"></div>
+  </section>
+
+<div class="modal fade" id="trailerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe id="trailer-video" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer py-5 mt-5" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <p>Scene brings movie discovery to your fingertips. Browse trending films, watch trailers, and enjoy cinematic journeys.</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#info">Introduction</</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <p class="text-center small mb-0">&copy; 2025 Scene. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/movie-detail.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scene - Discover Movies</title>
+  <link rel="icon" type="image" href="images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav id="navbar" class="navbar navbar-expand-lg shadow fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.png" alt="Logo" style="width: 50px; height: 50px; margin-right: 10px;">
+      <div class="wave-container">
+    <h1 class="wave-text ms-2">
+        <span>S</span><span>C</span><span>E</span><span>N</span><span>E</span>
+    </h1>
+</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarMovies" role="button" data-bs-toggle="dropdown">
+            Movies
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=popular">Popular</a></li>
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=now_playing">Now Playing</a></li>
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=upcoming">Upcoming</a></li>
+            <li><a class="dropdown-item" href="movielist.html?type=movie&category=top_rated">Top Rated</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarPeople" role="button" data-bs-toggle="dropdown">
+            People
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="movielist.html?type=person&category=popular">Popular People</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ms-3">
+        <li class="nav-item dropdown" id="userMenu">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle fa-lg"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" id="userDropdownMenu">
+            <li><h6 class="dropdown-header">👤 Guest</h6></li>
+            <li><a class="dropdown-item" href="login.html">Sign In</a></li>
+            <li><a class="dropdown-item" href="register.html">Sign Up</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Search bar -->
+  <div id="search-bar-wrapper" style="padding-top: 25px;">
+    <div class="input-group">
+      <input id="search" type="search" class="form-control" placeholder="Search for movies...">
+      <button class="btn btn-search" id="search-btn">Search</button>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+<div id="movieCarousel" class="carousel slide mt-4" data-bs-ride="carousel" style="padding-top: 70px;">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="images/carousel1.jpg" class="d-block w-100 rounded" alt="Movie 1">
+        </div>
+        <div class="col-md-4">
+          <img src="images/carousel2.jpg" class="d-block w-100 rounded" alt="Movie 2">
+        </div>
+        <div class="col-md-4">
+          <img src="images/carousel4.jpg" class="d-block w-100 rounded" alt="Movie 3">
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="images/carousel3.jpg" class="d-block w-100 rounded" alt="Movie 4">
+        </div>
+        <div class="col-md-4">
+          <img src="images/carousel5.jpg" class="d-block w-100 rounded" alt="Movie 5">
+        </div>
+        <div class="col-md-4">
+          <img src="images/carousel7.jpg" class="d-block w-100 rounded" alt="Movie 6">
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="row">
+        <div class="col-md-4">
+          <img src="images/carousel6.jpg" class="d-block w-100 rounded" alt="Movie 7">
+        </div>
+        <div class="col-md-4">
+          <img src="images/carousel8.jpg" class="d-block w-100 rounded" alt="Movie 8">
+        </div>
+        <div class="col-md-4">
+          <img src="images/carousel9.jpg" class="d-block w-100 rounded" alt="Movie 9">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<div class="info" id="info">
+  <div class="col-md-5">
+      <h3>Welcome to Scene.</h3>
+      <h4>Enjoy each scene to the fullest. Time to dive in!</h4>
+  </div>
+</div>
+
+<main id="gallery" class="container my-5">
+  <h3 class="mb-3">What's Popular</h3>
+  <div class="scroll-wrapper">
+    <div class="scroll-container" id="popular-movies"></div>
+    <button class="btn btn-search more-btn" data-type="movie" data-category="popular">More ➝</button>
+  </div>
+
+  <h3 class="mb-3 mt-5">Top Rated</h3>
+  <div class="scroll-wrapper">
+    <div class="scroll-container" id="high-rated-movies"></div>
+    <button class="btn btn-search more-btn" data-type="movie" data-category="top_rated">More ➝</button>
+  </div>
+
+  <h3 class="mb-3 mt-5">Upcoming Movies</h3>
+  <div class="scroll-wrapper">
+    <div class="scroll-container" id="upcoming-movies"></div>
+    <button class="btn btn-search more-btn" data-type="movie" data-category="upcoming">More ➝</button>
+  </div>
+</main>
+
+  <footer class="footer py-5 mt-5" id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <p>Scene brings movie discovery to your fingertips. Browse trending films, watch trailers, and enjoy cinematic journeys.</p>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#info">Introduction</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <p class="text-center small mb-0">&copy; 2025 Scene. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js" type="module"></script>
+</body>
+
+</html>

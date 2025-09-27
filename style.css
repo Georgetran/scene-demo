@@ -1,0 +1,536 @@
+/* Body */
+body {
+    background-color: #141414 !important; /* màu tối kiểu Netflix */
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #111;   /* màu nền đen */
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+}
+
+/* Khi scroll ẩn navbar */
+.navbar.hide {
+    transform: translateY(-100%);
+}
+
+/* Logo thương hiệu */
+.navbar-brand span {
+    color: #d71920;       /* đỏ Netflix */
+    font-weight: bold;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+/* Link trong navbar */
+.navbar-nav .nav-link {
+    color: #ccc !important;   /* mặc định xám sáng */
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+/* Hover thì sáng lên */
+.navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+
+/* Link đang active */
+.navbar-nav .nav-link.active {
+    color: #d71920 !important;
+    font-weight: 600;
+}
+
+/* Search icon hoặc nút trong navbar */
+.navbar .btn-search {
+    background: #d71920;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.navbar .btn-search:hover {
+    background: #b5151c;
+}
+
+/* Search bar */
+:root{
+  --nav-h: 70px; /* tạm thời, JS sẽ cập nhật đúng chiều cao thật */
+}
+
+/* thay phần cũ của #search-bar-wrapper bằng đoạn này */
+#search-bar-wrapper {
+    position: sticky;
+    top: var(--nav-h);         /* khi nav hiện -> search cách top bằng chiều cao nav */
+    background: #ffffff;
+    padding: 12px;
+    text-align: center;
+    z-index: 999;
+    border-bottom: 1px solid #333;
+    transition: top 0.3s ease; /* mượt khi đổi vị trí */
+}
+
+/* khi nav ẩn -> đẩy search dính sát mép trên */
+body.nav-hidden #search-bar-wrapper {
+    top: 0;
+}
+
+#search-bar-wrapper .input-group {
+    max-width: 600px;
+    margin: auto;
+}
+
+.btn-search {
+    background: #e50914;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-search:hover {
+    background: #b20710;
+}
+
+.scroll-wrapper {
+  position: relative;
+}
+
+.more-btn {
+  margin: 10px auto 0;       /* margin trên, tự căn giữa */
+  display: inline-block;     /* inline-block để text-center/auto margin hiệu quả */
+  background: #e50914;
+  color: white;
+  border: none;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+.more-btn:hover {
+  background: #b20710;
+}
+
+
+
+/* Cards */
+.card {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Carousel caption */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: #aaa;
+    border-top: 2px solid #333; /* viền ngăn cách body với footer */
+    padding: 40px 20px;
+}
+
+.footer h5 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-icons a {
+    color: #aaa;
+    margin-right: 15px;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: #e50914;
+}
+
+/* Carousel images */
+.carousel-item .col-md-4 {
+    padding: 5px; /* khoảng cách giữa các ảnh */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 300px;       /* Chiều cao cố định */
+    object-fit: cover;   /* Fill khung đẹp, cắt thừa */
+    border-radius: 10px; /* Bo góc mềm */
+    display: block;
+}
+
+/* scroll */
+.scroll-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444; /* 🔹 thanh ngăn cách */
+    padding-bottom: 10px;          /* tạo khoảng cách với border */
+}   
+
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 5px;
+}
+
+/* Body */
+body {
+    background-color: #141414 !important; /* màu tối kiểu Netflix */
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+/* Navbar */
+.navbar {
+    background-color: #111;   /* màu nền đen */
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+}
+
+/* Khi scroll ẩn navbar */
+.navbar.hide {
+    transform: translateY(-100%);
+}
+
+/* Logo thương hiệu */
+.navbar-brand span {
+    color: #d71920;       /* đỏ Netflix */
+    font-weight: bold;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+/* Link trong navbar */
+.navbar-nav .nav-link {
+    color: #ccc !important;   /* mặc định xám sáng */
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+/* Hover thì sáng lên */
+.navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+
+/* Link đang active */
+.navbar-nav .nav-link.active {
+    color: #d71920 !important;
+    font-weight: 600;
+}
+/* Link đang active */
+.navbar-nav .nav-link.active {
+    color: #d71920 !important;
+    font-weight: 600;
+}
+
+/* Search icon hoặc nút trong navbar */
+.navbar .btn-search {
+    background: #d71920;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.navbar .btn-search:hover {
+    background: #b5151c;
+}
+
+/* Search bar */
+:root{
+  --nav-h: 70px; /* tạm thời, JS sẽ cập nhật đúng chiều cao thật */
+}
+
+/* thay phần cũ của #search-bar-wrapper bằng đoạn này */
+#search-bar-wrapper {
+    position: sticky;
+    top: var(--nav-h);         /* khi nav hiện -> search cách top bằng chiều cao nav */
+    background: #ffffff;
+    padding: 12px;
+    text-align: center;
+    z-index: 999;
+    border-bottom: 1px solid #333;
+    transition: top 0.3s ease; /* mượt khi đổi vị trí */
+}
+
+/* khi nav ẩn -> đẩy search dính sát mép trên */
+body.nav-hidden #search-bar-wrapper {
+    top: 0;
+}
+
+#search-bar-wrapper .input-group {
+    max-width: 600px;
+    margin: auto;
+}
+
+.btn-search {
+    background: #e50914;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-search:hover {
+    background: #b20710;
+}
+
+.scroll-wrapper {
+  position: relative;
+}
+.profile-container {
+  max-width: 900px;
+  margin: 100px auto 50px; /* có khoảng cách dưới navbar */
+  padding: 20px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Header layout */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Avatar */
+.avatar-section {
+  text-align: center;
+}
+.avatar-section img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #01b4e4;
+  object-fit: cover;
+}
+.avatar-section button {
+  margin-top: 12px;
+  padding: 6px 14px;
+  background: #01b4e4;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+.avatar-section button:hover {
+  background: #0191b4;
+}
+
+/* User Info */
+.user-info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.user-info p {
+  margin: 4px 0 12px;
+  color: #ccc;
+}
+.user-info button {
+  margin: 5px;
+  padding: 6px 14px;
+  background: #01b4e4;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+.user-info button:hover {
+  background: #0191b4;
+}
+
+/* Edit Form */
+.edit-form {
+  margin-top: 20px;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+.edit-form input,
+.edit-form textarea {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: #222;
+  color: #fff;
+}
+
+/* Movie lists */
+.list-section {
+  margin-top: 40px;
+}
+.list-section h3 {
+  margin-bottom: 15px;
+  border-left: 4px solid #01b4e4;
+  padding-left: 10px;
+}
+
+.movie-list {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+.movie-card {
+  width: 160px;
+  flex: 0 0 auto;
+  text-align: center;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 8px;
+}
+.movie-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+.movie-card .title {
+  font-size: 14px;
+  margin: 4px 0;
+}
+.movie-card .removeBtn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hover-type {
+    transition: transform 0.2s;
+}
+.hover-type:hover {
+    transform: scale(1.05);
+}
+
+.card {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+/* Carousel caption */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: #aaa;
+    border-top: 2px solid #333; /* viền ngăn cách body với footer */
+    padding: 40px 20px;
+}
+
+.footer h5 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer a {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-icons a {
+    color: #aaa;
+    margin-right: 15px;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: #e50914;
+}
+
+.movie-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  filter: brightness(1.1);
+}
+
+.info {
+    background-color: #fff;
+    color: #222;
+    padding: 20px 0 20px 20px;
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

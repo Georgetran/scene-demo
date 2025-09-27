@@ -1,0 +1,130 @@
+/* ---------- Card (movie / person / cast) ---------- */
+.movie-card,
+.person-card,
+.cast-card {
+  width: 160px;
+  flex: 0 0 auto;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.28s ease, filter 0.28s ease, box-shadow 0.28s ease;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.movie-card img,
+.person-card img,
+.cast-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-bottom: 1px solid #333;
+  display: block;
+  transition: transform 0.28s ease, filter 0.28s ease;
+}
+
+.movie-card .movie-info { padding: 8px; }
+.movie-title { font-size: 0.9rem; font-weight: 700; }
+.movie-date { font-size: 0.8rem; color: #aaa; }
+
+/* Hover + focus effects (áp dụng cho mọi card) */
+.movie-card:hover,
+.person-card:hover,
+.cast-card:hover,
+.movie-card:focus-within,
+.person-card:focus-within,
+.cast-card:focus-within {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  filter: brightness(1.08);
+  background: rgba(255,255,255,0.03);
+}
+
+/* keyboard focus visible */
+.movie-card:focus,
+.person-card:focus,
+.cast-card:focus,
+.movie-card:focus-visible,
+.person-card:focus-visible,
+.cast-card:focus-visible {
+  outline: 3px solid rgba(255,165,0,0.15); /* nhẹ, dễ thấy */
+  outline-offset: 4px;
+}
+
+/* Smaller thumb variant (used in profile lists) */
+.movie-card.small,
+.movie-card.small img {
+  height: 160px;
+}
+
+/* ---------- Info section (tùy bạn muốn sáng hay tối) ---------- */
+/* Nếu bạn muốn info sáng (như hiện tại), giữ; nếu muốn tối, đổi background */
+.info {
+  display: flex;
+  background-color: #fff; /* nếu bạn muốn giữ sáng, ok */
+  color: #111;
+  padding: 30px;
+  margin-top: 25px;
+  box-shadow:
+    rgba(50, 50, 93, 0.08) 0px 10px 20px -10px inset,
+    rgba(0, 0, 0, 0.12) 0px 8px 16px -12px inset;
+}
+
+.info-img {
+  width: 200px;
+  height: 200px; /* tăng để tỷ lệ hợp poster */
+  transition: transform 0.28s ease, filter 0.28s ease;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.info-img:hover { transform: scale(1.03); filter: brightness(1.05); }
+
+/* ---------- Modal / Trailer ---------- */
+/* Support both custom popup id (#trailerPopup) and Bootstrap modal id (#trailerModal) */
+#trailerPopup,
+#trailerModal {
+  z-index: 2000;
+}
+
+/* If you use custom popup (non-Bootstrap) */
+#trailerPopup {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.8);
+  display:flex; justify-content:center; align-items:center;
+}
+#trailerPopup.hidden { display:none; }
+
+#trailerPopup .modal-content,
+#trailerModal .modal-content {
+  position: relative;
+  background: #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Close button position for custom popup */
+#closeTrailer {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 10;
+}
+
+/* Make iframe responsive if using bootstrap ratio or custom */
+#trailerPopup iframe,
+#trailerModal iframe {
+  width: 100%;
+  height: 500px;
+}
+
+/* ---------- Button active color (toggle state) ---------- */
+#btn-fav.btn-danger i,
+#btn-mylist.btn-success i {
+  color: #fff;
+}
+
+/* ---------- Small helpers ---------- */
+.movie-thumb { transition: transform .28s; }
+.movie-thumb:hover { transform: scale(1.03); }
